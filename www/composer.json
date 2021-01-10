@@ -1,0 +1,15 @@
+{
+    "name": "ecole/note",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Safae FANINA"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Room\\": "src/"
+        }
+    }
+}
