@@ -50,9 +50,17 @@ class Note
         {
             $this->rating = "Good";
         }
+        if ($note < 16 && $note > 14 )
+        {
+            $this->rating = "Perfect";
+        }
         if ($note < 20 && $note > 16 )
         {
             $this->rating = "Very Good";
+        }
+        if ($note < 10 && $note > 0 )
+        {
+            $this->rating = "NOT GOOD";
         }
     }
 

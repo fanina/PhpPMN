@@ -15,6 +15,7 @@ class Exam implements Evaluate
     public $classes = [];
     public $arrayMap_studentsNote = [];
 
+
     public function __construct(Classe ...$classes)
     {
         $this->classes = $classes;
@@ -29,7 +30,11 @@ class Exam implements Evaluate
         foreach($students as $student)
         {
             $this->note = new Note(rand(0,20),"");
-            $this->arrayMap_studentsNote[$student] = $this->note;
+            $this->note->defineRating($this->note->getNote());
+            $note = $this->note->getRating();
+            print " safae est : $note   " ;
+            array_push($this->arrayMap_studentsNote, array($student => $this->note));
+            //$this->arrayMap_studentsNote[] = array($student => $this->note);
         }
 
         return $this->arrayMap_studentsNote;
