@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Room;
+namespace Room\core;
 
 class Note
 {
@@ -15,7 +15,7 @@ class Note
         $this->rating = $rating;
     }
 
-    public function getNote(): int
+    public function getNote(): float
     {
         return $this->note;
     }

@@ -2,11 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Room;
+namespace Room\core;
 
-use Room\Classe;
+use Room\core\Classe;
 use Room\models\Student;
-use Room\Note;
+use Room\core\Note;
+use Room\core\Evaluate;
 
 class Exam implements Evaluate
 {
@@ -19,16 +20,17 @@ class Exam implements Evaluate
         $this->classes = $classes;
     }
     
-    private function rateExam(string $exam,Classe $classe): array
+    public function rateExam(Classe $classe): array
     {
-        public $students = array(function ($classes) use($notes){
-            foreach($this->classes as $classe){return $classe->student->all()}
+        $students = array(function ($classes){
+            foreach($this->classes as $classe){return $classe->student->all();}
         });
         foreach($students as $student)
         {
             $this->note = new Note(rand(0,20),"");
-            array_push($this->arrayMap_studentsNote , $student => $this->note);
+            $this->arrayMap_studentsNote[$student] = $this->note->getNote();
         }
         return $this->arrayMap_studentsNote;
     }
+
 }

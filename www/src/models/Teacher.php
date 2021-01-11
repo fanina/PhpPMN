@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-use Room\models\User;
+namespace Room\models;
 
-namespace Room\models\Teacher;
+use Room\models\User;
 
 class Teacher extends User
 {
