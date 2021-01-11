@@ -25,11 +25,13 @@ class Exam implements Evaluate
         $students = array(function ($classes){
             foreach($this->classes as $classe){return $classe->student->all();}
         });
+
         foreach($students as $student)
         {
             $this->note = new Note(rand(0,20),"");
-            $this->arrayMap_studentsNote[$student] = $this->note->getNote();
+            $this->arrayMap_studentsNote[$student] = $this->note;
         }
+
         return $this->arrayMap_studentsNote;
     }
 

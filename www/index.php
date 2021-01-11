@@ -11,9 +11,8 @@ require __DIR__.'/vendor/autoload.php';
 
 $student = new Student("rang");
 $student->setFName("safae");
-$teacher = new Teacher("teacher");
 
-$classe = new Classe($teacher,...[
+$classe = new Classe(new Teacher("speciality"),...[
         $student,
 
 ]);
@@ -25,4 +24,6 @@ echo $classe->getAllStudents();
 $sessionExam = new Exam(...[
     $classe,
 ]);
+
+$arrayElevesNotes = $sessionExam->rateExam($classe);
 
