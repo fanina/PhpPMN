@@ -13,7 +13,7 @@ class Classe
     public $student = [];
     public $teacher;
 
-        public function __construct( Teacher $teacher , Student ...$students)
+    public function __construct( Teacher $teacher , Student ...$students)
     {
         $this->teacher = $teacher;
         $this->student = $students;
@@ -21,17 +21,20 @@ class Classe
 
     public function getCountStudent(): int
     {
+        echo "Nombre d'etudiant dans cette classe est :   " ;
         return sizeof($this->student);
     }
 
-    public function getAllStudents()
+    public function getAllStudents() : array
     {
 
         echo "Les étudiants suivant sont dans la classe <br>\n";
-
+        $allstudents = null;
         foreach($this->student as $student) {
-            echo get_class($student).' : '.$student->getRang()."<br>\n";
+            echo 'A : '.$student->getFName()."<br>\n";
+            $allstudents[] = $student;
         }
+        return $allstudents;
 
     }
 }

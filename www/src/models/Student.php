@@ -11,7 +11,6 @@ final class Student extends User
 
     public function __construct(string $rang)
     {
-        echo "Je suis un eleve";
         $this->rang = $rang;
 
     }

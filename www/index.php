@@ -9,17 +9,21 @@ use Room\core\Exam;
 require __DIR__.'/vendor/autoload.php';
 
 
-$student = new Student("rang");
-$student->setFName("safae");
+$studentSafae = new Student("rang");
+$studentSafae->setFName("safae");
+
+$studentSamya = new Student("rang");
+$studentSamya->setFName("samya");
+
 
 $classe = new Classe(new Teacher("speciality"),...[
-        $student,
+        $studentSafae,
+        $studentSamya,
 
 ]);
 
 
-echo $classe->getCountStudent();
-echo $classe->getAllStudents();
+echo ' '.$classe->getCountStudent()."<br>\n";
 
 $sessionExam = new Exam(...[
     $classe,

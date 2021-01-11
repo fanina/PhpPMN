@@ -23,17 +23,21 @@ class Exam implements Evaluate
     
     public function rateExam(Classe $classe): array
     {
-        $students = array(function ($classes){
-            foreach($this->classes as $classe){return $classe->student->all();}
-        });
+        //$students = array(function ($classes){
+          //  foreach($this->classes as $classe){return $classe->student->all();}
+        //});
+        $students = $classe-> getAllStudents();
 
         foreach($students as $student)
         {
             $this->note = new Note(rand(0,20),"");
             $this->note->defineRating($this->note->getNote());
-            $note = $this->note->getRating();
-            print " safae est : $note   " ;
-            array_push($this->arrayMap_studentsNote, array($student => $this->note));
+            $rating = $this->note->getRating();
+            $note = $this->note->getNote();
+            $name = $student->getFName();
+            echo "Les Notes de votre Exam : <br>\n";
+            echo  $name.'  ==> Note = ' .$note.' , '.$rating."<br>\n" ;
+            //array_push($this->arrayMap_studentsNote, array($student => $this->note));
             //$this->arrayMap_studentsNote[] = array($student => $this->note);
         }
 
